@@ -4,119 +4,80 @@
 // Definitions: https://github.com/borisyankov/DefinitelyTyped
 
 interface BigInteger {
+    /** Performs addition */
+    add(number: number | string | BigInteger): BigInteger;
+
+    /** Alias for the add method. */
+    plus(number: number | string | BigInteger): BigInteger;
+
+    /** Alias for the subtract method. */
+    minus(number: number | string | BigInteger): BigInteger;
+
+    /** Performs subtraction. */
+    subtract(number: number | string | BigInteger): BigInteger;
+
+    /**  */
+    negate(): BigInteger;
+
     /** Returns the absolute value of a bigInt. */
     abs(): BigInteger;
 
-    /** Performs addition */
-    add( number: number ): BigInteger;
-    /** Performs addition */
-    add( number: BigInteger ): BigInteger;
-    /** Performs addition */
-    add( number: string ): BigInteger;
-
-    /** Alias for the add method. */
-    plus( number: number ): BigInteger;
-    /** Alias for the add method. */
-    plus( number: BigInteger ): BigInteger;
-    /** Alias for the add method. */
-    plus( number: string ): BigInteger;
-
-    /** Alias for the subtract method. */
-    minus( number: number ): BigInteger;
-    /** Alias for the subtract method. */
-    minus( number: BigInteger ): BigInteger;
-    /** Alias for the subtract method. */
-    minus( number: string ): BigInteger;
-
-    /** Performs subtraction. */
-    subtract( number: number ): BigInteger;
-    /** Performs subtraction. */
-    subtract( number: BigInteger ): BigInteger;
-    /** Performs subtraction. */
-    subtract( number: string ): BigInteger;
-
     /** Performs multiplication. */
-    multiply( number: number ): BigInteger;
-    /** Performs multiplication. */
-    multiply( number: BigInteger ): BigInteger;
-    /** Performs multiplication. */
-    multiply( number: string ): BigInteger;
+    multiply(number: number | string | BigInteger): BigInteger;
 
     /** Alias for the multiply method. */
-    times( number: number ): BigInteger;
-    /** Alias for the multiply method. */
-    times( number: BigInteger ): BigInteger;
-    /** Alias for the multiply method. */
-    times( number: string ): BigInteger;
+    times(number: number | string | BigInteger): BigInteger;
 
-    /** Performs integer division, disregarding the remainder. */
-    divide( number: number ): BigInteger;
-    /** Performs integer division, disregarding the remainder. */
-    divide( number: BigInteger ): BigInteger;
-    /** Performs integer division, disregarding the remainder. */
-    divide( number: string ): BigInteger;
-
-    /** Alias for the divide method. */
-    over( number: number ): BigInteger;
-    /** Alias for the divide method. */
-    over( number: BigInteger ): BigInteger;
-    /** Alias for the divide method. */
-    over( number: string ): BigInteger;
-
-    /** Performs exponentiation. If the exponent is less than 0, pow returns 0. bigInt.zero.pow(0) returns 1. */
-    pow( number: number ): BigInteger;
-    /** Performs exponentiation. If the exponent is less than 0, pow returns 0. bigInt.zero.pow(0) returns 1. */
-    pow( number: BigInteger ): BigInteger;
-    /** Performs exponentiation. If the exponent is less than 0, pow returns 0. bigInt.zero.pow(0) returns 1. */
-    pow( number: string ): BigInteger;
-
-    /** Adds one to the number. */
-    next(): BigInteger;
-
-    /** Subtracts one from the number. */
-    prev(): BigInteger;
-
-    /** Performs division and returns the remainder, disregarding the quotient. The sign of the remainder will match the sign of the dividend. */
-    mod( number: number ): BigInteger;
-    /** Performs division and returns the remainder, disregarding the quotient. The sign of the remainder will match the sign of the dividend. */
-    mod( number: BigInteger ): BigInteger;
-    /** Performs division and returns the remainder, disregarding the quotient. The sign of the remainder will match the sign of the dividend. */
-    mod( number: string ): BigInteger;
+    /**  */
+    square(): BigInteger;
 
     /** Performs division and returns an object with two properties: quotient and remainder. The sign of the remainder will match the sign of the dividend. */
-    divmod( number: number ): { quotient: BigInteger; remainder: BigInteger };
-    /** Performs division and returns an object with two properties: quotient and remainder. The sign of the remainder will match the sign of the dividend. */
-    divmod( number: BigInteger ): { quotient: BigInteger; remainder: BigInteger };
-    /** Performs division and returns an object with two properties: quotient and remainder. The sign of the remainder will match the sign of the dividend. */
-    divmod( number: string ): { quotient: BigInteger; remainder: BigInteger };
+    divmod(number: number | string | BigInteger): { quotient: BigInteger; remainder: BigInteger };
+
+    /** Performs integer division, disregarding the remainder. */
+    divide(number: number | string | BigInteger): BigInteger;
+
+    /** Alias for the divide method. */
+    over(number: number | string | BigInteger): BigInteger;
+
+    /** Performs division and returns the remainder, disregarding the quotient. The sign of the remainder will match the sign of the dividend. */
+    mod(number: number | string | BigInteger): BigInteger;
+
+    /**  */
+    remainder(number: number | string | BigInteger): BigInteger;
+
+    /** Performs exponentiation. If the exponent is less than 0, pow returns 0. bigInt.zero.pow(0) returns 1. */
+    pow(number: number | string | BigInteger ): BigInteger;
+
+    /**  */
+    modPow(exp: number | string | BigInteger, mod: number | string | BigInteger): BigInteger;
+
+    /** Performs a comparison between the absolute value of two numbers. */
+    compareAbs(number: number | string | BigInteger): BigInteger;
+
+    /**
+     * Performs a comparison between two numbers. If the numbers are equal, it returns 0.
+     * If the first number is greater, it returns 1. If the first number is lesser, it returns -1.
+     */
+    compare(number: number | string | BigInteger): BigInteger;
+
+    /** Checks if two numbers are equal. */
+    equals(number: number | string | BigInteger): boolean;
+
+    /** Checks if two numbers are not equal. */
+    notEquals(number: number | string | BigInteger): boolean;
 
     /** Checks if the first number is greater than the second. */
-    greater( number: number ): boolean;
-    /** Checks if the first number is greater than the second. */
-    greater( number: BigInteger ): boolean;
-    /** Checks if the first number is greater than the second. */
-    greater( number: string ): boolean;
-
-    /** Checks if the first number is greater than or equal to the second. */
-    greaterOrEquals( number: number ): boolean;
-    /** Checks if the first number is greater than or equal to the second. */
-    greaterOrEquals( number: BigInteger ): boolean;
-    /** Checks if the first number is greater than or equal to the second. */
-    greaterOrEquals( number: string ): boolean;
+    greater(number: number | string | BigInteger): boolean;
 
     /** Checks if the first number is lesser than the second. */
-    lesser( number: number ): boolean;
-    /** Checks if the first number is lesser than the second. */
-    lesser( number: BigInteger ): boolean;
-    /** Checks if the first number is lesser than the second. */
-    lesser( number: string ): boolean;
+    lesser(number: number | string | BigInteger): boolean;
+
+    /** Checks if the first number is greater than or equal to the second. */
+    greaterOrEquals(number: number | string | BigInteger): boolean;
 
     /** Checks if the first number is less than or equal to the second. */
-    lesserOrEquals( number: number ): boolean;
-    /** Checks if the first number is less than or equal to the second. */
-    lesserOrEquals( number: BigInteger ): boolean;
-    /** Checks if the first number is less than or equal to the second. */
-    lesserOrEquals( number: string ): boolean;
+    lesserOrEquals(number: number | string | BigInteger): boolean;
 
     /** Returns true if the number is even, false otherwise. */
     isEven(): boolean;
@@ -130,75 +91,55 @@ interface BigInteger {
     /** Returns true if the number is negative, false otherwise. Returns false for 0 and true for -0. */
     isNegative(): boolean;
 
-    /**
-     * Performs a comparison between two numbers. If the numbers are equal, it returns 0.
-     * If the first number is greater, it returns 1. If the first number is lesser, it returns -1.
-     */
-    compare( number: number ): BigInteger;
-    /**
-     * Performs a comparison between two numbers. If the numbers are equal, it returns 0.
-     * If the first number is greater, it returns 1. If the first number is lesser, it returns -1.
-     */
-    compare( number: BigInteger ): BigInteger;
-    /**
-     * Performs a comparison between two numbers. If the numbers are equal, it returns 0.
-     * If the first number is greater, it returns 1. If the first number is lesser, it returns -1.
-     */
-    compare( number: string ): BigInteger;
+    /** Returns true if the number is +1, false otherwise. */
+    isUnit(): boolean;
 
-    /** Performs a comparison between the absolute value of two numbers. */
-    compareAbs( number: number ): BigInteger;
-    /** Performs a comparison between the absolute value of two numbers. */
-    compareAbs( number: BigInteger ): BigInteger;
-    /** Performs a comparison between the absolute value of two numbers. */
-    compareAbs( number: string ): BigInteger;
+    /** Returns true if the number is 0, false otherwise. */
+    isZero(): boolean;
 
-    /** Checks if two numbers are equal. */
-    equals( number: number ): boolean;
-    /** Checks if two numbers are equal. */
-    equals( number: BigInteger ): boolean;
-    /** Checks if two numbers are equal. */
-    equals( number: string ): boolean;
+    /**  */
+    isDivisibleBy(number: number | string | BigInteger): boolean;
 
-    /** Checks if two numbers are not equal. */
-    notEquals( number: number ): boolean;
-    /** Checks if two numbers are not equal. */
-    notEquals( number: BigInteger ): boolean;
-    /** Checks if two numbers are not equal. */
-    notEquals( number: string ): boolean;
+    /**  */
+    isPrime(): boolean;
 
-    /** Performs the bitwise AND operation. */
-    and( number: number ): BigInteger;
-    /** Performs the bitwise AND operation. */
-    and( number: BigInteger ): BigInteger;
-    /** Performs the bitwise AND operation. */
-    and( number: string ): BigInteger;
+    /**  */
+    isProbablePrime(): boolean;
+    /**  */
+    isProbablePrime(iterations: number): boolean;
+
+    /** Adds one to the number. */
+    next(): BigInteger;
+
+    /** Subtracts one from the number. */
+    prev(): BigInteger;
+
+    /**  */
+    shiftLeft(n: number | string | BigInteger): BigInteger;
+
+    /**  */
+    shiftRight(n: number | string | BigInteger): BigInteger;
 
     /** Performs the bitwise NOT operation. */
     not(): BigInteger;
 
+    /** Performs the bitwise AND operation. */
+    and(number: number | string | BigInteger): BigInteger;
+
     /** Performs the bitwise OR operation. */
-    or( number: number ): BigInteger;
-    /** Performs the bitwise OR operation. */
-    or( number: BigInteger ): BigInteger;
-    /** Performs the bitwise OR operation. */
-    or( number: string ): BigInteger;
+    or(number: number | string | BigInteger): BigInteger;
 
     /** Performs the bitwise XOR operation. */
-    xor( number: number ): BigInteger;
-    /** Performs the bitwise XOR operation. */
-    xor( number: BigInteger ): BigInteger;
-    /** Performs the bitwise XOR operation. */
-    xor( number: string ): BigInteger;
-
-    /** Converts a bigInt into a native Javascript number. Loses precision for numbers outside the range. */
-    toJSNumber(): number;
+    xor(number: number | string | BigInteger): BigInteger;
 
     /** Converts a bigInt to a string. */
     toString(): string;
 
     /** Converts a bigInt to a native Javascript number. This override allows you to use native arithmetic operators without explicit conversion. */
     valueOf(): number;
+
+    /** Converts a bigInt into a native Javascript number. Loses precision for numbers outside the range. */
+    toJSNumber(): number;
 }
 
 interface BigIntegerStatic {
@@ -209,14 +150,25 @@ interface BigIntegerStatic {
     /** Equivalent to bigInt(-1) */
     minusOne: BigInteger;
 
+    /**  */
+    max(a: number | string | BigInteger, b: number | string | BigInteger): BigInteger;
+    /**  */
+    min(a: number | string | BigInteger, b: number | string | BigInteger): BigInteger;
+    /**  */
+    gcd(a: number | string | BigInteger, b: number | string | BigInteger): BigInteger;
+    /**  */
+    lcm(a: number | string | BigInteger, b: number | string | BigInteger): BigInteger;
+    /**  */
+    randBetween(a: number | string | BigInteger, b: number | string | BigInteger): BigInteger;
+
     /** Equivalent to bigInt(0) */
     (): BigInteger;
     /** Parse a Javascript number into a bigInt */
-    ( number: number ): BigInteger;
+    (number: number): BigInteger;
     /** Parse a string into a bigInt */
-    ( string: string,  base?: string | number | BigInteger): BigInteger;
+    (string: string, base?: number | string | BigInteger): BigInteger;
     /** no-op */
-    ( bigInt: BigInteger ): BigInteger;
+    (bigInt: BigInteger): BigInteger;
 }
 
 declare var bigInt: BigIntegerStatic;
